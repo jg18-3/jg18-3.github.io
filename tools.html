@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>軟體網 | 工具</title>
+    <style>
+        /* CSS 樣式與 index.html 保持一致 (省略重複部分) */
+        body { font-family: '微軟正黑體', Arial, sans-serif; line-height: 1.6; margin: 0; background-color: #eef1f6; color: #333; }
+        .container { max-width: 960px; margin: 30px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; }
+        nav { background-color: #3498db; padding: 10px 0; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; border-radius: 5px; transition: background-color 0.3s; }
+        nav a:hover { background-color: #2980b9; }
+
+        /* 索引列表樣式 */
+        .list-item { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 6px; 
+            background-color: #ffffff; 
+            transition: background-color 0.3s;
+        }
+        .list-item:hover { background-color: #f0f0ff; }
+        .list-item h3 { margin-top: 0; margin-bottom: 5px; color: #16a085; }
+        .list-item h3 a { text-decoration: none; color: #16a085; }
+        .meta-info { font-size: 0.9em; color: #777; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">🏠 首頁/總覽</a>
+        <a href="software.html">💻 軟體與擴充</a>
+        <a href="tools.html">🛠️ 小工具與腳本</a>
+    </nav>
+
+    <div class="container">
+        <h1>🛠️ 小工具與自動化腳本清單索引</h1>
+        <p>點擊標題查看每個項目的詳細介紹與使用說明。</p>
+
+        <div id="tools-list">
+            <p>正在載入工具清單...</p>
+        </div>
+
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const listContainer = document.getElementById('tools-list');
+
+        fetch('tools_data.json')
+            .then(response => response.json())
+            .then(data => {
+                listContainer.innerHTML = ''; // 清除 "正在載入"
+
+                // --- 新增檢查：若資料陣列為空，顯示「暫無內容」 ---
+                if (!Array.isArray(data) || data.length === 0) {
+                    listContainer.innerHTML = '<p style="text-align: center; color: #777; padding: 20px; border: 1px dashed #ccc; border-radius: 5px;">🔧 目前暫無小工具或腳本。</p>';
+                    return; // 結束函式執行
+                }
+                // --------------------------------------------------
+
+                data.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'list-item';
+
+                    // 核心：生成指向子資料夾的連結
+                    const detailLink = `tools/${item.id}.html`; 
+
+                    card.innerHTML = `
+                        <h3><a href="${detailLink}">${item.name}</a></h3>
+                        <div class="meta-info">
+                            <span>發布日期：${item.date}</span> |
+                            <span>發布者：${item.author}</span>
+                        </div>
+                        <p>${item.summary}</p>
+                    `;
+
+                    listContainer.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching tools data:', error);
+                listContainer.innerHTML = '<p style="color:red;">錯誤：無法載入工具清單索引，請檢查 JSON 檔案。</p>';
+            });
+    });
+    </script>
+</body>
+</html>
