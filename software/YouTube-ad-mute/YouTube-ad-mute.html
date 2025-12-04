@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <link rel="icon" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
+  <text x='10' y='1em' font-size='90'>🚀</text>
+</svg>">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>軟體網 | YouTube廣告禁音</title>
+    <style>
+        /* 頁面基礎樣式：與 software.html 保持一致 */
+        body { font-family: '微軟正黑體', Arial, sans-serif; line-height: 1.6; margin: 0; background-color: #eef1f6; color: #333; }
+        .container { max-width: 960px; margin: 30px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; }
+        nav { background-color: #3498db; padding: 10px 0; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; border-radius: 5px; transition: background-color 0.3s; }
+        nav a:hover { background-color: #2980b9; }
+
+        /* 詳細頁面特有樣式 */
+        .detail-header { margin-bottom: 30px; }
+        .detail-header h2 { color: #e74c3c; margin-top: 0; font-size: 2.5em; }
+        .meta-info { font-size: 1em; color: #777; margin-bottom: 20px; border-left: 3px solid #ccc; padding-left: 10px; }
+        .feature-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .feature-box h3 { color: #3498db; margin-top: 0; }
+        
+        /* 程式碼區塊樣式 */
+        pre { 
+            background-color: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 15px; 
+            border-radius: 6px; 
+            overflow-x: auto; 
+            font-size: 0.9em;
+            white-space: pre-wrap; /* 讓程式碼區塊換行 */
+        }
+
+           
+        
+        /* 返回按鈕 */
+        p.button-return a {
+            display: inline-block; /* 讓 <a> 可以設定寬高和內邊距 */
+            background-color: #3498db; /* 藍色背景 */
+            color: white; /* 白色文字 */
+            padding: 8px 15px; /* 內邊距，增加按鈕感 */
+            text-decoration: none; /* 移除下劃線 */
+            border-radius: 5px; /* 圓角 */
+            font-weight: bold; /* 字體加粗 */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 輕微陰影 */
+        }
+
+        p.button-return a:hover {
+            background-color: #2980b9; /* 懸停時顏色變深 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 懸停時陰影加深 */
+        }
+        
+        /* 保持 <p> 元素不影響按鈕排版 */
+        p.button-return {
+            margin-bottom: 20px;
+        }
+
+        /* 橫幅 */
+
+        /* 橫幅 */
+        img.banner {
+            /* 設定圖片寬度為其父容器的 100% */
+            width: 100%; 
+            /* 設定最大寬度，雖然父容器已經限制了，但這能確保圖片不會超過任何限制 */
+            max-width: 100%; 
+            /* 確保圖片維持長寬比，避免變形 */
+            height: auto; 
+            /* 增加圓角和邊界，讓它看起來更美觀 */
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        video.video-stream-operate{
+            /* 設定圖片寬度為其父容器的 100% */
+            width: 100%; 
+            /* 設定最大寬度，雖然父容器已經限制了，但這能確保圖片不會超過任何限制 */
+            max-width: 100%; 
+            /* 確保圖片維持長寬比，避免變形 */
+            height: auto; 
+            /* 增加圓角和邊界，讓它看起來更美觀 */
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* 警告區塊樣式 */
+        .warning-box {
+            border: 2px solid #e74c3c; /* 鮮紅色的邊框 */
+            background-color: #fdedec; /* 淺紅色的背景 */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            margin-bottom: 25px; /* 增加下方間距 */
+            color: #c0392b; /* 深紅色文字 */
+            font-weight: bold;
+            text-align: center; /* 文字置中 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 輕微陰影，增加立體感 */
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../index.html">🏠 首頁/總覽</a>
+        <a href="../../software.html">💻 軟體與擴充</a>
+        <a href="../../tools.html">🛠️ 小工具與腳本</a>
+    </nav>
+
+    <div class="container">
+        <p class="button-return"><a href="../../software.html">← 返回上一頁</a></p>
+        
+        <div class="detail-header">
+            <h2>YouTube廣告禁音 (YouTube-ad-mute)</h2>
+            <div class="meta-info">
+                <span>發布者：zCracker</span> |
+                <span>發布日期：2025-12-01</span>
+            </div>
+        </div>
+        <p><strong>專為YouTube設計，讓老師放影片時，同學不被突如其來的廣告嚇到。</strong></p>
+
+        <div class="warning-box">
+            🚧 注意：此擴充功能尚未開發完畢，程式碼與功能可能會在未來有所變動。
+        </div>
+
+        <img class="banner" src="./pic/banner.png" alt="banner">
+
+        <hr>
+
+        <h3>✨ 核心功能</h3>
+        <ul>
+            <li><strong>自動靜音：</strong> 當偵測到 YouTube 影片播放器進入廣告模式時，自動將播放器靜音。</li>
+            <li><strong>音量恢復：</strong> 廣告結束後，自動將播放器恢復到播放前的音量（即取消靜音）。</li>
+            <li><strong>即時通知：</strong> 在播放器畫面上顯示「🔇 擴充功能：廣告期間靜音」的通知訊息，讓使用者知道靜音是被擴充功能所控制。</li>
+        </ul>
+
+        
+        <hr>
+        
+        <h3>擴充效果{影片}</h3>
+        <video class="video-stream-operate" src="./vid/operate.mp4" controls></video>
+        
+        <hr>
+
+        <h3>下載此擴充</h3>
+
+        <a class="download-button" href="https://drive.google.com/drive/folders/1wMCSW0OS8Cgsl8aMt2BXl17r2vNpb5UF" 
+   style="background-color: #e74c3c; color: white; padding: 6px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 1.2em; transition: background-color 0.3s;"
+   target="_blank">
+    📥 點擊前往下載頁面
+        </a>
+        
+        
+        <hr>
+        <h3>📋 程式碼內容 (Userscript/Content Script)</h3>
+        <p>以下是實現上述功能的 JavaScript 程式碼：</p>
+        <div class="feature-box">
+            <p><strong>檔案：</strong> <code>YouTube-ad-mute.js</code></p>
+            <pre>
+(function() {
+    let lastMutedByExtension = false;
+    const notificationId = 'ad-mute-notification';
+
+    // 1. 建立並顯示通知元素
+    function showNotification(message) {
+        let notif = document.getElementById(notificationId);
+        
+        if (!notif) {
+            notif = document.createElement('div');
+            notif.id = notificationId;
+            notif.style.cssText = `
+                position: absolute; 
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%);
+                background: rgba(44, 62, 80, 0.9);
+                color: white; 
+                padding: 10px 20px; 
+                border-radius: 8px; 
+                font-size: 18px; 
+                font-weight: bold;
+                z-index: 2000;
+                pointer-events: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                transition: opacity 0.5s;
+            `;
+            const playerContainer = document.querySelector('#movie_player');
+            if (playerContainer) {
+                playerContainer.appendChild(notif);
+            } else {
+                return;
+            }
+        }
+        
+        notif.textContent = message;
+        notif.style.opacity = 1;
+    }
+
+    // 2. 隱藏通知元素
+    function hideNotification() {
+        const notif = document.getElementById(notificationId);
+        if (notif) {
+            notif.style.opacity = 0;
+            // 可選：延遲後移除元素
+            setTimeout(() => {
+                if (notif.parentNode) {
+                    notif.parentNode.removeChild(notif);
+                }
+            }, 600);
+        }
+    }
+
+    function checkAds() {
+        const player = document.querySelector('.video-stream'); 
+        const playerContainer = document.querySelector('#movie_player');
+        
+        if (!player || !playerContainer) return;
+
+        // 檢查廣告相關的類或元素
+        const isAd = document.querySelector('.ad-interrupting, .ad-showing, .ytp-ad-player-overlay') !== null;
+        // 檢查影片是否已結束
+        const isEnded = playerContainer.classList.contains('ytp-ended-state');
+
+
+        // --- 核心邏輯 ---
+        
+        if (isAd) {
+            // 廣告開始：靜音並顯示通知
+            if (!player.muted) {
+                player.muted = true;
+                lastMutedByExtension = true;
+                showNotification("🔇 擴充功能：廣告期間靜音");
+                console.log("🔇 廣告偵測到！已靜音。");
+            }
+        } else if (isEnded) {
+            // 影片已結束：無論如何都要清除擴充功能的狀態和通知
+            if (lastMutedByExtension) {
+                player.muted = false; // 確保音量沒有被靜音
+                lastMutedByExtension = false;
+                hideNotification();
+                console.log("🎬 影片結束，清除靜音和通知狀態。");
+            }
+        } else {
+            // 正常播放中：如果上次是廣告靜音，則恢復音量
+            if (lastMutedByExtension && player.muted) {
+                player.muted = false;
+                lastMutedByExtension = false;
+                hideNotification();
+                console.log("🔊 廣告結束，恢復音量。");
+            }
+        }
+    }
+
+    // 每 500 毫秒檢查一次
+    setInterval(checkAds, 500);
+})();
+            </pre>
+        </div>
+    </div>
+</body>
+</html>
