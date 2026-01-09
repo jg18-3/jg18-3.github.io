@@ -2,26 +2,23 @@
 <html lang="zh-TW">
 <head>
     <link rel="icon" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
-  <text x='10' y='1em' font-size='90'>🚀</text>
-</svg>">
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'>
+      <text x='10' y='1em' font-size='90'>🚀</text>
+    </svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>軟體網 | 首頁</title>
     <style>
-        /* 統一的 CSS 樣式 */
+        /* 1. 基礎樣式 */
         body { font-family: '微軟正黑體', Arial, sans-serif; line-height: 1.6; margin: 0; background-color: #eef1f6; color: #333; }
         .container { max-width: 960px; margin: 30px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         
-        /* 通用 H1 樣式：保留給 container 內的其他 H1，但 welcome-hero 內會覆蓋 */
         h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; }
-        
         h2 { color: #34495e; margin-top: 30px; }
         nav { background-color: #3498db; padding: 10px 0; text-align: center; }
         nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; border-radius: 5px; transition: background-color 0.3s; }
         nav a:hover { background-color: #2980b9; }
         
-        /* 歡迎區塊 - 調整樣式 */
         .welcome-hero { 
             background: linear-gradient(135deg, #2ecc71, #3498db); 
             color: white; 
@@ -31,26 +28,22 @@
             margin-bottom: 30px; 
         }
         
-        /* 專門移除 welcome-hero 內 H1 標題的底線 */
         .welcome-hero h1.main-title { 
             color: white; 
             font-size: 2.5em; 
             margin-top: 0;
             margin-bottom: 15px;
             font-weight: 700;
-            border-bottom: none; /* 移除藍線 */
+            border-bottom: none;
             padding-bottom: 0;
         }
 
-        /* 目標次標題 */
         .welcome-hero h2.sub-title { 
             color: #d1d1d1; 
             font-size: 1.5em; 
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin: 0 0 15px 0;
         }
 
-        /* 導覽區塊 */
         .call-to-action {
             text-align: center;
             padding: 20px;
@@ -66,38 +59,65 @@
             text-decoration: none; 
             border-radius: 5px; 
             font-weight: bold; 
-            margin: 0 10px;
+            margin: 10px;
             display: inline-block;
             transition: background-color 0.3s; 
         }
         .action-btn:hover { background-color: #d63031; }
 
-        /* 專案卡片 */
-        .project-card { 
-            border: 1px solid #ccc; 
-            padding: 20px; 
-            margin-top: 20px; 
-            border-radius: 8px; 
-            background-color: #f0f8ff; 
-            border-left: 5px solid #e74c3c; 
+        /* 2. 手機版專屬遮罩樣式 (預設隱藏) */
+        #mobile-maintenance {
+            display: none; /* 預設不顯示 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            z-index: 9999;
+            text-align: center;
+            padding-top: 100px;
         }
-        .project-card h3 { color: #e74c3c; margin-top: 0; }
-        .intro-text { color: #555; }
+        .maintenance-content { padding: 20px; }
+        .maintenance-icon { font-size: 80px; margin-bottom: 20px; }
+
+        /* 3. 響應式邏輯：當螢幕寬度小於 768px 時 */
+        @media screen and (max-width: 768px) {
+            /* 隱藏原本的導覽和內容 */
+            nav, .container {
+                display: none !important;
+            }
+            /* 顯示施工中區塊 */
+            #mobile-maintenance {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-top: 0;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <div id="mobile-maintenance">
+        <div class="maintenance-content">
+            <div class="maintenance-icon">🚧</div>
+            <h1 style="border:none;">感謝您的瀏覽</h1>
+            <p style="font-size: 1.2em; color: #666;">網頁正在重新建置中，敬請期待！</p>
+        </div>
+    </div>
+
     <nav>
         <a href="index.html">🏠 首頁/總覽</a>
         <a href="software.html">💻 軟體與擴充</a>
         <a href="tools.html">🛠️ 小工具與腳本</a>
     </nav>
+
     <div class="container">
-        
         <div class="welcome-hero">
             <h1 class="main-title">🎉 歡迎來到 軟體中心！</h1>
-            
             <h2 class="sub-title">💡 我們的目標：讓教學更加精彩！</h2>
-            
             <p>作為資訊組長的好幫手，我們致力於運用技術優化教學環境、提升數位學習效率，讓每一堂課都能充滿活力與創新。</p>
         </div>
         
@@ -108,14 +128,10 @@
             <a href="tools.html" class="action-btn">🛠️ 前往工具與腳本 (Tools)</a>
         </div>
 
-        
-        
-        
         <h2>🙋 關於製作者</h2>
         <p>我是 zCracker，對 資訊科技 充滿熱情。如有任何疑問或建議，歡迎隨時聯繫！</p>
         <p><strong>聯繫信箱：</strong> 【jgjhs18.3@gmai.com】</p>
-
     </div>
-</body>
 
+</body>
 </html>
