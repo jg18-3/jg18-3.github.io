@@ -9,12 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>軟體網 | 首頁</title>
     <style>
-        /* 1. 基礎樣式 */
+        /* 1. 基礎樣式 (電腦版與手機版共用) */
         body { font-family: '微軟正黑體', Arial, sans-serif; line-height: 1.6; margin: 0; background-color: #eef1f6; color: #333; }
         .container { max-width: 960px; margin: 30px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         
         h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; }
         h2 { color: #34495e; margin-top: 30px; }
+        
         nav { background-color: #3498db; padding: 10px 0; text-align: center; }
         nav a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 5px; border-radius: 5px; transition: background-color 0.3s; }
         nav a:hover { background-color: #2980b9; }
@@ -29,122 +30,89 @@
         }
         
         .welcome-hero h1.main-title { 
-            color: white; 
-            font-size: 2.5em; 
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 700;
-            border-bottom: none;
-            padding-bottom: 0;
+            color: white; font-size: 2.5em; margin: 0 0 15px 0;
+            font-weight: 700; border-bottom: none; padding-bottom: 0;
         }
 
-        .welcome-hero h2.sub-title { 
-            color: #d1d1d1; 
-            font-size: 1.5em; 
-            margin: 0 0 15px 0;
-        }
+        .welcome-hero h2.sub-title { color: #d1d1d1; font-size: 1.5em; margin: 0 0 15px 0; }
 
         .call-to-action {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffeaa7; 
-            border: 2px solid #fdcb6e;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            text-align: center; padding: 20px; background-color: #ffeaa7; 
+            border: 2px solid #fdcb6e; border-radius: 8px; margin-bottom: 30px;
         }
+
         .action-btn { 
-            background-color: #e17055; 
-            color: white; 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            margin: 10px;
-            display: inline-block;
-            transition: background-color 0.3s; 
+            background-color: #e17055; color: white; padding: 10px 20px; 
+            text-decoration: none; border-radius: 5px; font-weight: bold; 
+            margin: 10px; display: inline-block; transition: background-color 0.3s; 
         }
         .action-btn:hover { background-color: #d63031; }
 
-        /* 2. 手機版專屬遮罩樣式 (預設隱藏) */
+        /* 2. 手機版施工畫面 (預設隱藏) */
         #mobile-maintenance {
-            display: none; /* 預設不顯示 */
+            display: none; /* 初始隱藏，由 JS 決定是否開啟 */
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: #ffffff;
-            z-index: 9999;
+            z-index: 10000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding-top: 100px;
         }
-        .maintenance-content { padding: 20px; }
         .maintenance-icon { font-size: 80px; margin-bottom: 20px; }
-
-        /* 修改後的偵測邏輯 */
-        @media screen and (max-width: 1024px) { 
-            /* 1024px 以下（含手機橫放、大部分平板）都顯示施工中 */
-            nav, .container {
-                display: none !important;
-            }
-            #mobile-maintenance {
-                display: flex !important;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-
-            /* 額外保險：如果是手機觸控裝置（不論寬度）也擋住 */
-            @media (pointer: coarse) {
-                /* 這裡可以針對有觸控點的設備加強限制 */
-            }
-            /* 顯示施工中區塊 */
-            #mobile-maintenance {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding-top: 0;
-            }
-        }
     </style>
 </head>
 <body>
 
     <div id="mobile-maintenance">
-        <div class="maintenance-content">
-            <div class="maintenance-icon">🚧</div>
-            <h1 style="border:none;">感謝您的瀏覽</h1>
-            <p style="font-size: 1.2em; color: #666;">網頁正在重新建置中，敬請期待！</p>
+        <div class="maintenance-icon">🚧</div>
+        <h1 style="border:none;">感謝您的瀏覽</h1>
+        <p style="font-size: 1.2em; color: #666; padding: 0 20px;">
+            網頁正在重新建置中，敬請期待！<br>
+            (請使用電腦版瀏覽器開啟)
+        </p>
+    </div>
+
+    <div id="main-content">
+        <nav>
+            <a href="index.html">🏠 首頁/總覽</a>
+            <a href="software.html">💻 軟體與擴充</a>
+            <a href="tools.html">🛠️ 小工具與腳本</a>
+        </nav>
+
+        <div class="container">
+            <div class="welcome-hero">
+                <h1 class="main-title">🎉 歡迎來到 軟體中心！</h1>
+                <h2 class="sub-title">💡 我們的目標：讓教學更加精彩！</h2>
+                <p>作為資訊組長的好幫手，我們致力於運用技術優化教學環境、提升數位學習效率，讓每一堂課都能充滿活力與創新。</p>
+            </div>
+            
+            <div class="call-to-action">
+                <h2>📢 最新軟體與工具請點擊這裡查看！</h2>
+                <p>本專案中心的所有最新軟體、優化腳本和文件，都在下方頁面等待您的審核與指導：</p>
+                <a href="software.html" class="action-btn">💻 前往軟體清單 (Software)</a>
+                <a href="tools.html" class="action-btn">🛠️ 前往工具與腳本 (Tools)</a>
+            </div>
+
+            <h2>🙋 關於製作者</h2>
+            <p>我是 zCracker，對 資訊科技 充滿熱情。如有任何疑問或建議，歡迎隨時聯繫！</p>
+            <p><strong>聯繫信箱：</strong> 【jgjhs18.3@gmai.com】</p>
         </div>
     </div>
 
-    <nav>
-        <a href="index.html">🏠 首頁/總覽</a>
-        <a href="software.html">💻 軟體與擴充</a>
-        <a href="tools.html">🛠️ 小工具與腳本</a>
-    </nav>
-
-    <div class="container">
-        <div class="welcome-hero">
-            <h1 class="main-title">🎉 歡迎來到 軟體中心！</h1>
-            <h2 class="sub-title">💡 我們的目標：讓教學更加精彩！</h2>
-            <p>作為資訊組長的好幫手，我們致力於運用技術優化教學環境、提升數位學習效率，讓每一堂課都能充滿活力與創新。</p>
-        </div>
-        
-        <div class="call-to-action">
-            <h2>📢 最新軟體與工具請點擊這裡查看！</h2>
-            <p>本專案中心的所有最新軟體、優化腳本和文件，都在下方頁面等待您的審核與指導：</p>
-            <a href="software.html" class="action-btn">💻 前往軟體清單 (Software)</a>
-            <a href="tools.html" class="action-btn">🛠️ 前往工具與腳本 (Tools)</a>
-        </div>
-
-        <h2>🙋 關於製作者</h2>
-        <p>我是 zCracker，對 資訊科技 充滿熱情。如有任何疑問或建議，歡迎隨時聯繫！</p>
-        <p><strong>聯繫信箱：</strong> 【jgjhs18.3@gmai.com】</p>
-    </div>
+    <script>
+        (function() {
+            // 偵測是否為行動裝置
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // 如果是手機，顯示施工層，隱藏主內容
+                document.getElementById('mobile-maintenance').style.display = 'flex';
+                document.getElementById('main-content').style.display = 'none';
+            }
+        })();
+    </script>
 
 </body>
 </html>
-
