@@ -81,11 +81,23 @@
         .maintenance-content { padding: 20px; }
         .maintenance-icon { font-size: 80px; margin-bottom: 20px; }
 
-        /* 3. 響應式邏輯：當螢幕寬度小於 768px 時 */
-        @media screen and (max-width: 768px) {
-            /* 隱藏原本的導覽和內容 */
+        /* 修改後的偵測邏輯 */
+        @media screen and (max-width: 1024px) { 
+            /* 1024px 以下（含手機橫放、大部分平板）都顯示施工中 */
             nav, .container {
                 display: none !important;
+            }
+            #mobile-maintenance {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+            /* 額外保險：如果是手機觸控裝置（不論寬度）也擋住 */
+            @media (pointer: coarse) {
+                /* 這裡可以針對有觸控點的設備加強限制 */
             }
             /* 顯示施工中區塊 */
             #mobile-maintenance {
@@ -135,3 +147,4 @@
 
 </body>
 </html>
+
