@@ -1,11 +1,12 @@
 [
     {
         "id": "./YouTube-ad-mute",
-        "name": "YouTube廣告禁音",
+        "name": "YouTube廣告靜音",
         "author": "zCracker",
         "date": "2025-12-01",
         "summary": "專為YouTube設計，讓老師放影片時，同學不被廣告嚇到。"
         
     }
     
+
 ]
