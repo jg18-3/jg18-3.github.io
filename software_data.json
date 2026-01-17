@@ -2,11 +2,20 @@
     {
         "id": "./YouTube-ad-mute",
         "name": "YouTube廣告靜音",
-        "author": "zCracker",
+        "author": "Siri",
         "date": "2025-12-01",
         "summary": "專為YouTube設計，讓老師放影片時，同學不被廣告嚇到。"
         
     }
-    
+
+        {
+        "id": "./scratchproject0117",
+        "name": "YouTube廣告靜音",
+        "author": "Siri",
+        "date": "2026-01-17",
+        "summary": "我的Scratch作品：氣泡排序"
+        
+        }
 
 ]
+
